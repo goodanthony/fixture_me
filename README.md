@@ -47,6 +47,7 @@ a mymodel.yml file would be generated  inside that file does not exist in the te
 'add_fixture' method would add the new record after the existing fixtures.
 
 ```ruby
+require "fixture_me"
 obj = Mymodel.find(42)
 obj.add_fixture
 ```
