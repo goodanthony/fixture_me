@@ -28,18 +28,26 @@ Or install it yourself as:
  rails console
 ```
 
-Oce your are inside Rails console
+Once your are inside Rails console
 
 To generate fixtures for all models.
 
 A new directory called fixtures would be created inside tmp directory (this is to make sure that this fixture generation would not override existing fixtures)
 
+
 ```ruby
- FixtureMe::AddFixtures.create_all_fixtures
+ fixme = FixtureMe::AddFixtures.new
+ fixme.create_all_fixtures
 ```
 
+to exclude created_at and updated_at columns
 
+```ruby
+ fixme = FixtureMe::AddFixtures.new
+ fixme.create_all_fixtures_no_timestamps
+```
 
+ 
 To generate fixtures one by one
 
 a mymodel.yml file would be generated  inside that file does not exist in the test/fixtures directory

@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["anthony de silva"]
   spec.email         = ["anthony@iamfree.com"]
   spec.summary       = %q{Generate fixtures and fixture files for testing}
-  spec.description   = %q{ }
-  spec.homepage      = ""
+  spec.description   = %q{If you want to generate fixtures from development database for a Ruby on Rails application here is a helper}
+  spec.homepage      = "https://github.com/iamfree-com/fixture_me"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
