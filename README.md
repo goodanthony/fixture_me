@@ -47,7 +47,7 @@ to exclude created_at and updated_at columns
  fixme.create_all_fixtures_no_timestamps
 ```
 
- 
+
 To generate fixtures one by one
 
 a mymodel.yml file would be generated  inside that file does not exist in the test/fixtures directory
@@ -59,6 +59,17 @@ require "fixture_me"
 obj = Mymodel.find(42)
 obj.add_fixture
 ```
+
+To exclude timestamps and ID
+
+```ruby
+require "fixture_me"
+obj = Mymodel.find(42)
+obj.add_fixture_no_id_timestamps
+```
+
+
+
 
 
 On a last note please try to give some tender love to fixtures. There is nothing wrong with them. No doubt Factories are good. But why would you need that when there are fixtures bundled right there with Rails and they work like a charm with Rails.  I'll have a dig at Rspec as well. Why on earth would one use Rspec when there is minitest.
