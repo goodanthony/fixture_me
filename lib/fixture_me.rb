@@ -13,7 +13,7 @@ module FixtureMe
      string += "\n"
      table_name = self.class.table_name
      file_name = table_name + ".yml"
-     File.open("#{Rails.root}/test/fixtures/#{file_name}", 'a') do |out|
+     File.open("#{Dir.pwd}/test/fixtures/#{file_name}", 'a') do |out|
        out.write(string)
      end
    end
@@ -30,10 +30,13 @@ module FixtureMe
      string += "\n"
      table_name = self.class.table_name
      file_name = table_name + ".yml"
-     File.open("#{Rails.root}/test/fixtures/#{file_name}", 'a') do |out|
+     File.open("#{Dir.pwd}/test/fixtures/#{file_name}", 'a') do |out|
        out.write(string)
      end
    end
+
+
+
 
 
 
@@ -41,7 +44,7 @@ module FixtureMe
 
 
      def  initialize
-        @fixtures_dir =  FileUtils.mkdir_p( "#{Rails.root}/tmp/fixtures/").first
+        @fixtures_dir =  FileUtils.mkdir_p( "#{Dir.pwd}/tmp/fixtures/").first
      end
 
      def fixtures_dir
@@ -51,7 +54,7 @@ module FixtureMe
 
      def all_models
        # must eager load all the classes...
-       Dir.glob("#{RAILS_ROOT}/app/models/**/*.rb") do |model_path|
+       Dir.glob("#{Dir.pwd}/app/models/**/*.rb") do |model_path|
          begin
           require model_path
          rescue
@@ -69,7 +72,7 @@ module FixtureMe
 
 
               table_names = ActiveRecord::Base.connection.tables #.map{|a| a.capitalize.singularize}
-              model_names = Dir["#{Rails.root}/app/models/**/*.rb"].map {|f| File.basename(f, '.*').pluralize}
+              model_names = Dir["#{Dir.pwd}/app/models/**/*.rb"].map {|f| File.basename(f, '.*').pluralize}
 
               #Rails.application.eager_load! unless Rails.configuration.cache_classes
               #ActiveRecord::Base.descendants
